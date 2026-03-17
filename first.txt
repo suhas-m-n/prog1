@@ -1,2 +1,35 @@
 good morning
 hi everyone
+package Example4.Example4;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+
+
+public class Example4 {
+
+	public static void main(String[] args) throws IOException, ParseException, org.json.simple.parser.ParseException {
+		 JSONParser jsonparser = new JSONParser();
+	     FileReader filereader = new FileReader(".\\jsonfile\\emp.json");
+	        
+	        // Parse the file into an Object
+	     Object obj = jsonparser.parse(filereader);
+	        
+	        // Cast the Object to a JSONObject
+	        JSONObject empobj = (JSONObject) obj;
+	        
+	        // Retrieve the value of "firstname"
+	        String fname = (String) empobj.get("firstname");
+	        String lname = (String) empobj.get("lastname");
+	        // Print the result
+	        System.out.println("firstname"+fname);
+	        System.out.println("lastname"+lname);
+
+	}
+
+}
